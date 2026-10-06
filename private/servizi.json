@@ -1,6 +1,11 @@
 {
   "progetti": [
     {
+      "nome": "Server Manager",
+      "descrizione": "Un sistemista AI per il tuo VPS: gli parli in linguaggio naturale e lui risponde con comandi reali.",
+      "url": "https://www.servermanager.dev"
+    },
+    {
       "nome": "Labour",
       "descrizione": "Piattaforma HR: sito di presentazione e gestionale del personale dietro il login.",
       "url": "https://labour.igorcardines.it"
