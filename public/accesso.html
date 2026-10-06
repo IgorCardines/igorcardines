@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Igor Cardines</title>
+  <meta name="description" content="Igor Cardines — sito personale.">
+  <link rel="stylesheet" href="stile.css">
+  <script src="accesso.js" defer></script>
+</head>
+<body>
+  <main class="copertina" aria-hidden="true">
+    <div>
+      <h1>Igor Cardines</h1>
+      <p>Sviluppo web</p>
+    </div>
+  </main>
+
+  <dialog class="accesso" id="accesso" aria-labelledby="accesso-titolo">
+    <form id="modulo" novalidate>
+      <h2 id="accesso-titolo">Accesso</h2>
+      <p class="sotto">Il sito è privato per ora.</p>
+      <label class="campo">
+        <span>Nome utente</span>
+        <input name="utente" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+      </label>
+      <label class="campo">
+        <span>Password</span>
+        <input name="password" type="password" autocomplete="current-password" required>
+      </label>
+      <p class="errore" id="errore" role="alert"></p>
+      <button class="pulsante pieno" type="submit">Entra</button>
+    </form>
+  </dialog>
+</body>
+</html>
