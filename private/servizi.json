@@ -3,17 +3,23 @@
     {
       "nome": "Server Manager",
       "descrizione": "Un sistemista AI per il tuo VPS: gli parli in linguaggio naturale e lui risponde con comandi reali.",
-      "url": "https://www.servermanager.dev"
+      "stack": "Next.js · Prisma · OpenAI",
+      "url": "https://www.servermanager.dev",
+      "immagine": null
     },
     {
       "nome": "Labour",
       "descrizione": "Piattaforma HR: sito di presentazione e gestionale del personale dietro il login.",
-      "url": "https://labour.igorcardines.it"
+      "stack": "Next.js · Prisma · SQLite",
+      "url": "https://labour.igorcardines.it",
+      "immagine": null
     },
     {
       "nome": "Visual Wiki",
       "descrizione": "Domande e risposte sui manuali tecnici, con i disegni originali e la parte evidenziata.",
-      "url": "https://wiki.igorcardines.it"
+      "stack": "FastAPI · Vite · Docling",
+      "url": "https://wiki.igorcardines.it",
+      "immagine": null
     }
   ],
   "privati": [

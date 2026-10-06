@@ -4,32 +4,60 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Igor Cardines</title>
-  <meta name="description" content="Igor Cardines — sito personale.">
+  <meta name="description" content="Igor Cardines — sviluppo web.">
   <link rel="stylesheet" href="stile.css">
   <script src="accesso.js" defer></script>
 </head>
-<body>
-  <main class="copertina" aria-hidden="true">
-    <div>
-      <h1>Igor Cardines</h1>
-      <p>Sviluppo web</p>
+<body class="accesso-pagina">
+  <div class="app" aria-hidden="true"></div>
+  <aside class="info" aria-hidden="true">
+    <div class="info-testata">
+      <div class="avatar">IC<span class="lampada"></span></div>
+      <h5>Igor Cardines</h5>
+      <div class="ruoli">Sviluppatore web<br>Full-stack</div>
+    </div>
+    <div class="info-scorri"></div>
+    <div class="social"></div>
+  </aside>
+  <aside class="menu" aria-hidden="true">
+    <div class="menu-testata"><span class="menu-bottone"><span></span></span></div>
+    <div class="pagina-corrente">Accesso</div>
+  </aside>
+
+  <main class="contenuto" aria-hidden="true">
+    <div class="sfondo-alto"></div>
+    <div class="contenuto-interno">
+      <section class="banner">
+        <div class="banner-segnaposto"></div>
+        <div class="banner-testo">
+          <h1>Applicazioni web su misura, dall'idea al server.</h1>
+          <div class="riga-codice"><i>&lt;code&gt;</i> Sviluppo applicazioni web. <i>&lt;/code&gt;</i></div>
+        </div>
+      </section>
     </div>
   </main>
 
   <dialog class="accesso" id="accesso" aria-labelledby="accesso-titolo">
-    <form id="modulo" novalidate>
-      <h2 id="accesso-titolo">Accesso</h2>
-      <p class="sotto">Il sito è privato per ora.</p>
+    <div class="accesso-testata">
+      <div class="avatar">IC<span class="lampada"></span></div>
+      <h5 id="accesso-titolo">Area riservata</h5>
+      <div>Il sito è privato per ora.</div>
+    </div>
+    <form class="accesso-corpo" id="modulo" novalidate>
       <label class="campo">
-        <span>Nome utente</span>
-        <input name="utente" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+        <input name="utente" placeholder="Nome utente" aria-label="Nome utente" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+        <span class="etichetta" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="7.5" r="4.5"/><path d="M3 22c0-5 4-8.5 9-8.5s9 3.5 9 8.5Z"/></svg>
+        </span>
       </label>
       <label class="campo">
-        <span>Password</span>
-        <input name="password" type="password" autocomplete="current-password" required>
+        <input name="password" type="password" placeholder="Password" aria-label="Password" autocomplete="current-password" required>
+        <span class="etichetta" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 10V7a6 6 0 0 1 12 0v3h1.5v12h-15V10Zm3 0h6V7a3 3 0 0 0-6 0Z"/></svg>
+        </span>
       </label>
       <p class="errore" id="errore" role="alert"></p>
-      <button class="pulsante pieno" type="submit">Entra</button>
+      <button class="btn" type="submit">Entra</button>
     </form>
   </dialog>
 </body>

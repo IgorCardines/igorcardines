@@ -7,28 +7,207 @@
   <link rel="stylesheet" href="stile.css">
   <script src="pannello.js" defer></script>
 </head>
+<!--
+  SEGNAPOSTO da sostituire (cercare "segnaposto" in questo file):
+  foto profilo e foto del banner, dati della barra a sinistra (città, lingue, competenze,
+  percentuali), contatori, testi dei servizi offerti, link social e CV.
+  I progetti e i servizi privati invece vengono da servizi.json.
+-->
 <body>
-  <div class="pannello">
-    <header class="testata">
-      <span class="titolo">Igor Cardines</span>
-      <button class="pulsante leggero" id="esci" type="button">Esci</button>
-    </header>
+  <div class="app" aria-hidden="true"></div>
 
-    <section class="sezione" aria-labelledby="titolo-progetti">
-      <header>
-        <h2 id="titolo-progetti">Progetti</h2>
-        <p>Applicazioni sviluppate. In futuro questa sarà la vetrina pubblica.</p>
-      </header>
-      <div class="griglia" id="progetti"></div>
-    </section>
-
-    <section class="sezione" aria-labelledby="titolo-privati">
-      <header>
-        <h2 id="titolo-privati">Servizi privati</h2>
-        <p>I container del VPS.</p>
-      </header>
-      <div class="griglia" id="privati"></div>
-    </section>
+  <!-- barra in alto, solo su schermi stretti -->
+  <div class="barra-mobile">
+    <button type="button" data-apri="info" aria-label="Profilo">
+      <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+    </button>
+    <button type="button" data-apri="menu" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="5" width="18" height="2.5"/><rect x="3" y="11" width="18" height="2.5"/><rect x="3" y="17" width="18" height="2.5"/></svg>
+    </button>
   </div>
+
+  <!-- barra del profilo, a sinistra -->
+  <aside class="info" id="info">
+    <div class="info-testata">
+      <div class="avatar">
+        <!-- segnaposto: sostituire con <img src="foto.jpg" alt="Igor Cardines"> -->
+        IC
+        <span class="lampada" title="Disponibile per nuovi progetti"></span>
+      </div>
+      <h5>Igor Cardines</h5>
+      <div class="ruoli">Sviluppatore web<br>Full-stack</div>
+    </div>
+
+    <div class="info-scorri">
+      <div class="info-blocco">
+        <ul class="tabella">
+          <!-- segnaposto -->
+          <li><h6>Residenza:</h6><span>Italia</span></li>
+          <li><h6>Città:</h6><span>Venafro</span></li>
+          <li><h6>Disponibile:</h6><span>Sì</span></li>
+        </ul>
+      </div>
+
+      <div class="info-blocco">
+        <!-- segnaposto: lingue e percentuali (data-valore) -->
+        <div class="anelli">
+          <div class="anello" data-valore="100"><div class="percento"></div><h6>Italiano</h6></div>
+          <div class="anello" data-valore="80"><div class="percento"></div><h6>Inglese</h6></div>
+          <div class="anello" data-valore="40"><div class="percento"></div><h6>Spagnolo</h6></div>
+        </div>
+      </div>
+
+      <div class="info-blocco">
+        <!-- segnaposto: competenze e percentuali -->
+        <div class="barre">
+          <div class="barra-voce" data-valore="90"><h6>JavaScript / TypeScript</h6></div>
+          <div class="barra-voce" data-valore="85"><h6>React / Next.js</h6></div>
+          <div class="barra-voce" data-valore="75"><h6>Python</h6></div>
+          <div class="barra-voce" data-valore="80"><h6>Docker / Linux</h6></div>
+          <div class="barra-voce" data-valore="70"><h6>SQL</h6></div>
+        </div>
+      </div>
+
+      <div class="info-blocco">
+        <!-- segnaposto -->
+        <ul class="conoscenze">
+          <li>Node.js, FastAPI</li>
+          <li>Prisma, SQLite, PostgreSQL</li>
+          <li>Caddy, nginx, VPS</li>
+          <li>Automazioni con n8n</li>
+          <li>Integrazioni con l'AI</li>
+        </ul>
+      </div>
+
+      <div class="info-blocco">
+        <!-- segnaposto: link al CV -->
+        <a class="link-cv" href="#">Scarica il CV
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="social">
+      <a href="https://github.com/IgorCardines" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+      </a>
+      <!-- segnaposto: profilo LinkedIn -->
+      <a href="#" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .77 0 1.73v20.54C0 23.23.8 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+      </a>
+      <!-- segnaposto: indirizzo email -->
+      <a href="mailto:info@igorcardines.it" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="4.5" width="19" height="15" rx="1.5"/><path d="m3 6 9 7 9-7"/></svg>
+      </a>
+    </div>
+  </aside>
+
+  <!-- barra del menu, a destra -->
+  <aside class="menu" id="menu">
+    <div class="menu-testata">
+      <button class="menu-bottone" type="button" data-apri="menu" aria-label="Menu"><span></span></button>
+    </div>
+    <div class="pagina-corrente" id="pagina-corrente">Home</div>
+    <nav>
+      <ul>
+        <li><a href="#home" class="attivo">Home</a></li>
+        <li><a href="#offro">Servizi</a></li>
+        <li><a href="#progetti">Progetti</a></li>
+        <li><a href="#privati">Area privata</a></li>
+      </ul>
+      <div class="separatore"></div>
+      <ul>
+        <li><button type="button" id="esci">Esci</button></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="velo" id="velo"></div>
+
+  <main class="contenuto">
+    <div class="sfondo-alto" aria-hidden="true"></div>
+    <div class="contenuto-interno">
+
+      <section class="banner" id="home">
+        <!-- segnaposto: immagine di sfondo (impostare --banner-img nello style) -->
+        <div class="banner-segnaposto" aria-hidden="true"></div>
+        <div class="banner-testo">
+          <h1>Applicazioni web su misura, dall'idea al server.</h1>
+          <div class="riga-codice">
+            <i>&lt;code&gt;</i> <span class="cursore" id="frase"></span> <i>&lt;/code&gt;</i>
+          </div>
+          <a class="btn" href="#progetti">Guarda i progetti</a>
+        </div>
+        <div class="banner-foto" aria-hidden="true">
+          <!-- segnaposto: foto in primo piano, PNG con sfondo trasparente -->
+          <svg viewBox="0 0 330 364" fill="none">
+            <circle cx="165" cy="120" r="62" fill="#3c3c4a"/>
+            <path d="M40 364c0-80 56-140 125-140s125 60 125 140Z" fill="#3c3c4a"/>
+            <text x="165" y="330" text-anchor="middle" fill="#6b6b78" font-family="Courier Prime, monospace" font-size="14">foto</text>
+          </svg>
+        </div>
+      </section>
+
+      <!-- segnaposto: numeri -->
+      <div class="contatori">
+        <div class="contatore"><b data-conta="5">0 +</b><span>Anni di<br>esperienza</span></div>
+        <div class="contatore"><b id="n-progetti">0</b><span>Progetti<br>online</span></div>
+        <div class="contatore"><b id="n-servizi">0</b><span>Servizi<br>attivi</span></div>
+        <div class="contatore"><b data-conta="12">0 +</b><span>Clienti<br>soddisfatti</span></div>
+      </div>
+
+      <section class="sezione" id="offro">
+        <div class="sezione-titolo"><h4>Cosa faccio</h4></div>
+        <!-- segnaposto: testi dei servizi offerti -->
+        <div class="griglia">
+          <div class="scheda">
+            <h5>Applicazioni web</h5>
+            <p>Gestionali, aree riservate e piattaforme su misura, dal database all'interfaccia.</p>
+            <a class="link" href="mailto:info@igorcardines.it">Chiedi un preventivo</a>
+          </div>
+          <div class="scheda">
+            <h5>Siti e landing page</h5>
+            <p>Siti veloci e curati, pensati per presentare un'attività e farsi trovare.</p>
+            <a class="link" href="mailto:info@igorcardines.it">Chiedi un preventivo</a>
+          </div>
+          <div class="scheda">
+            <h5>Automazioni e AI</h5>
+            <p>Flussi automatici e assistenti AI che tolgono lavoro ripetitivo dalle tue giornate.</p>
+            <a class="link" href="mailto:info@igorcardines.it">Chiedi un preventivo</a>
+          </div>
+          <div class="scheda">
+            <h5>Server e hosting</h5>
+            <p>Messa online su VPS con HTTPS, backup e rilasci automatici, senza pensieri.</p>
+            <a class="link" href="mailto:info@igorcardines.it">Chiedi un preventivo</a>
+          </div>
+          <div class="scheda">
+            <h5>Manutenzione</h5>
+            <p>Aggiornamenti, sicurezza e piccole modifiche per tenere il progetto in salute.</p>
+            <a class="link" href="mailto:info@igorcardines.it">Chiedi un preventivo</a>
+          </div>
+          <div class="scheda">
+            <h5>Consulenza</h5>
+            <p>Un aiuto a scegliere strumenti, architettura e priorità prima di iniziare.</p>
+            <a class="link" href="mailto:info@igorcardines.it">Chiedi un preventivo</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="sezione" id="progetti">
+        <div class="sezione-titolo"><h4>Progetti</h4><p>Applicazioni sviluppate e online</p></div>
+        <div class="griglia" id="lista-progetti"></div>
+      </section>
+
+      <section class="sezione" id="privati">
+        <div class="sezione-titolo"><h4>Area privata</h4><p>I container del VPS</p></div>
+        <div class="griglia" id="lista-privati"></div>
+      </section>
+
+      <footer class="pie">
+        <span>© <span id="anno">2026</span> Igor Cardines. Tutti i diritti riservati.</span>
+        <span><a href="https://igorcardines.it">igorcardines.it</a></span>
+      </footer>
+    </div>
+  </main>
 </body>
 </html>

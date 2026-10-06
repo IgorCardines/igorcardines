@@ -40,6 +40,7 @@ const TIPI = {
   '.jpg': 'image/jpeg',
   '.webp': 'image/webp',
   '.ico': 'image/x-icon',
+  '.woff2': 'font/woff2',
 };
 
 const SICUREZZA = {
