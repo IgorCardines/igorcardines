@@ -3,6 +3,8 @@
 /* Font ospitati qui (niente Google Fonts: nessun IP dei visitatori a terzi). Licenza in font/LEGGIMI.txt */
 @font-face { font-family: "Courier Prime"; font-style: normal; font-weight: 400; font-display: swap;
   src: url("font/courier-prime-400.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Poppins"; font-style: italic; font-weight: 100; font-display: swap;
+  src: url("font/poppins-100-italic.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "Poppins"; font-style: normal; font-weight: 400; font-display: swap;
   src: url("font/poppins-400.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "Poppins"; font-style: normal; font-weight: 500; font-display: swap;
@@ -232,7 +234,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--titolo); font-weight: 600; }
     linear-gradient(135deg, #4a4552 0%, #3a3644 40%, #2c2a35 100%);
 }
 .banner-testo { position: relative; z-index: 2; max-width: 520px; }
-.banner h1 { font-size: 42px; font-weight: 800; line-height: 1.2; margin-bottom: 15px; }
+.banner h1 { font-size: 46px; font-style: italic; font-weight: 100; line-height: 1.2; margin-bottom: 15px; }
 .riga-codice { color: var(--titolo); font: 16px/1.7 var(--codice); margin-bottom: 30px; min-height: 27px; }
 .riga-codice i { color: var(--giallo); font-style: normal; }
 .cursore { border-right: 1px solid var(--chiaro); padding-right: 4px; animation: cursore 1s step-end infinite; }
