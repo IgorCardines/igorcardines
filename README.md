@@ -14,17 +14,9 @@ In locale (la 8080 qui è già di code-server): `PORT=8099 node --env-file=.env 
 
 ## Produzione
 
-`/srv/apps/igorcardines` (container `igorcardines:8080`), dietro Caddy. File di riferimento in
-`project/_infra/srv/apps/igorcardines/`. Rilascio automatico a ogni push su `main`.
+`/srv/apps/igorcardines`: container `igorcardines`, porta 80 (come il vecchio nginx), dietro Caddy.
+Rilascio automatico a ogni push su `main`.
 
-Primo passaggio da nginx a Node, sull'host:
-
-```bash
-cp /srv/apps/igorcardines/src/.env.example /srv/apps/igorcardines/.env
-chmod 600 /srv/apps/igorcardines/.env   # poi inserire i valori (gli stessi del .env di sviluppo)
-cp PROJECT_PATH/_infra/srv/apps/igorcardines/docker-compose.yml /srv/apps/igorcardines/
-cp PROJECT_PATH/_infra/srv/bin/autodeploy /srv/bin/autodeploy
-/srv/bin/deploy igorcardines
-# nel Caddyfile: reverse_proxy igorcardines:80 -> igorcardines:8080, poi
-docker compose -f /srv/proxy/docker-compose.yml exec caddy caddy reload --config /etc/caddy/Caddyfile
-```
+Utente, password e segreto delle sessioni stanno nel `docker-compose.yml` sull'host (modello in
+`project/_infra/srv/apps/igorcardines/`). Per cambiarli da code-server: aggiornare `.env`, rigenerare
+il compose con i valori veri e installarlo con `ssh vps compose igorcardines < compose.yml`.
